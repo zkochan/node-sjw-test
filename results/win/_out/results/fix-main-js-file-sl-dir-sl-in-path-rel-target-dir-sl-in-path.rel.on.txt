@@ -1,0 +1,16 @@
+node   : v7.2.0  NODE_PRESERVE_SYMLINKS = 1
+date   : Sun, 04 Dec 2016 00:35:01 GMT
+'$'    : 'C:\src\node-sjw-test\test\_layouts'
+'_'    : '$\fix-main-js-file-sl-dir-sl-in-path-rel-target-dir-sl-in-path'
+
+require              linked        ld/ksh  __dirname                  realpath  
+-------------------  ------------  ------  ------------------- key -  --------  
+node '_\index.js'    [main_1]      LOADED  _\realdir\nm\main          <-        
+ [main_1] <anc>      [anc_WRONG]   LOADED  _\realdir\nm\anc           <-        
+ [main_1] <desc>     [desc_WRONG]  LOADED  _\realdir\nm\main\nm\desc  <-        
+
+caller               called        ()-cnt  __dirname                  realpath  
+-------------------  ------------  ------  ------------------- key -  --------  
+node '_\index.js'()  [main_1]         1    _\realdir\nm\main          <-        
+  [main_1] <anc>()   [anc_WRONG]      1    _\realdir\nm\anc           <-        
+  [main_1] <desc>()  [desc_WRONG]     1    _\realdir\nm\main\nm\desc  <-        

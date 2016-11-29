@@ -1,0 +1,17 @@
+node     : v7.2.0-sjw  NODE_SUPPORT_SYMLINKS = 1
+date     : Sun, 04 Dec 2016 00:35:04 GMT
+base     : C:\src\node-sjw-test\test\_layouts
+layout   : \fix-memhog-fun
+dirname  : \
+realpath : \
+
+heap = 7,148 k
+mmmmm.... memory... yummmm...
+
+heap = 19,264 k
+i'm pretty full.. thanks for asking though
+
+heap = 19,264 k
+really.. i'm actually stuffed.. thanks anyways..
+
+heap = 19,264 k

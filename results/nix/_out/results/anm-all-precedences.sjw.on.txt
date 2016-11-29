@@ -1,0 +1,28 @@
+node   : v7.2.0-sjw  NODE_SUPPORT_SYMLINKS = 1
+date   : Sat, 03 Dec 2016 19:28:38 GMT
+'$'    : '/home/phestermcs/src/node-sjw-test/test/_layouts'
+'_'    : '$/anm-all-precedences'
+
+require                  linked      ld/ksh  __dirname                         realpath  
+-----------------------  ----------  ------  --------------------------------  -- key -  
+node '_/index.js'        [main_1]    LOADED  _/main                            <-        
+ [main_1] <int1>         [int1]      LOADED  _/main/nm/int1                    <-        
+   [int1] <int2>         [int2]      LOADED  _/main/nm/int1/nm/int2            <-        
+     [int2] <dscBc>      [dscBc_1]   LOADED  _/main/nm/int1/nm/int2/nm/dscBc   <-        
+     [int2] <dscAnm>     [dscAnm_1]  LOADED  _/main/nm/int1/nm/int2.nm/dscAnm  <-        
+     [int2] <adjBc>      [adjBc_1]   LOADED  _/main/nm/int1/nm/adjBc           <-        
+     [int2] <adjAnm>     [adjAnm_1]  LOADED  _/main/nm/int1.nm/adjAnm          <-        
+     [int2] <ancBc>      [ancBc_1]   LOADED  _/main/nm/ancBc                   <-        
+     [int2] <ancAnm>     [ancAnm_1]  LOADED  _/main.nm/ancAnm                  <-        
+
+caller                   called      ()-cnt  __dirname                         realpath  
+-----------------------  ----------  ------  --------------------------------  -- key -  
+node '_/index.js'()      [main_1]       1    _/main                            <-        
+  [main_1] <int1>()      [int1]         1    _/main/nm/int1                    <-        
+    [int1] <int2>()      [int2]         1    _/main/nm/int1/nm/int2            <-        
+      [int2] <dscBc>()   [dscBc_1]      1    _/main/nm/int1/nm/int2/nm/dscBc   <-        
+      [int2] <dscAnm>()  [dscAnm_1]     1    _/main/nm/int1/nm/int2.nm/dscAnm  <-        
+      [int2] <adjBc>()   [adjBc_1]      1    _/main/nm/int1/nm/adjBc           <-        
+      [int2] <adjAnm>()  [adjAnm_1]     1    _/main/nm/int1.nm/adjAnm          <-        
+      [int2] <ancBc>()   [ancBc_1]      1    _/main/nm/ancBc                   <-        
+      [int2] <ancAnm>()  [ancAnm_1]     1    _/main.nm/ancAnm                  <-        

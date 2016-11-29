@@ -1,0 +1,18 @@
+node     : v7.2.0-sjw  NODE_SUPPORT_SYMLINKS = 1
+date     : Sat, 03 Dec 2016 19:46:10 GMT
+base     : /home/phestermcs/src/node-sjw-test/test/_layouts
+layout   : /fix-addon-blowup
+dirname  : /
+realpath : /
+
+YELLOW ALERT!! - fuse1 IGNITING!!
+
+...add-off here... hey... i smell smoke...
+
+RED ALERT!!    - fuse2 IGNITING!!
+
+Bomb Disarmed -- Cancel Red Alert.
+War Games Simulation Complete.
+Have A Nice Day :)
+
+...i'm still here... hmm... guess it was nothing...

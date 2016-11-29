@@ -1,0 +1,16 @@
+node   : v7.2.0-sjw  NODE_SUPPORT_SYMLINKS = 1
+date   : Sat, 03 Dec 2016 19:46:08 GMT
+'$'    : '/home/phestermcs/src/node-sjw-test/test/_layouts'
+'_'    : '$/fix-main-x-file-sl-dir-sl-in-path-rel-target-sl-in-path'
+
+require            linked    ld/ksh  __dirname                    realpath                   
+-----------------  --------  ------  ---------------------------  ------------------- key -  
+node '_/index.js'  [main]    LOADED  _/realdir/nm/symdir          _/main/nm/mainmod          
+ [main] <anc>      [anc_1]   LOADED  _/realdir/nm/anc             <-                         
+ [main] <desc>     [desc_1]  LOADED  _/realdir/nm/symdir/nm/desc  _/main/nm/mainmod/nm/desc  
+
+caller               called    ()-cnt  __dirname                    realpath                   
+-------------------  --------  ------  ---------------------------  ------------------- key -  
+node '_/index.js'()  [main]       1    _/realdir/nm/symdir          _/main/nm/mainmod          
+  [main] <anc>()     [anc_1]      1    _/realdir/nm/anc             <-                         
+  [main] <desc>()    [desc_1]     1    _/realdir/nm/symdir/nm/desc  _/main/nm/mainmod/nm/desc  

@@ -1,0 +1,31 @@
+node     : v7.2.0  NODE_PRESERVE_SYMLINKS = 1
+date     : Sun, 04 Dec 2016 00:35:12 GMT
+base     : C:\src\node-sjw-test\test\_layouts
+layout   : \fix-addon-blowup
+dirname  : \
+realpath : \
+
+YELLOW ALERT!! - fuse1 IGNITING!!
+
+...add-off here... hey... i smell smoke...
+
+RED ALERT!!    - fuse2 IGNITING!!
+
+***********************************
+**********  !!BOOOOMB!!  **********
+***********************************
+
+add-off didn't make it... :(
+here's his epitaph, if it helps.. :(
+
+Error: Module did not self-register.
+    at Object.Module._extensions..node (module.js:598:18)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at C:\src\node-sjw-test\test\_layouts\fix-addon-blowup\index.js:30:21
+    at Object.<anonymous> (C:\src\node-sjw-test\test\_layouts\fix-addon-blowup\index.js:45:7)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
