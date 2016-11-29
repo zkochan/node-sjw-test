@@ -1,0 +1,17 @@
+node     : v7.2.0  NODE_PRESERVE_SYMLINKS = 1
+date     : Sat, 03 Dec 2016 19:46:09 GMT
+base     : /home/phestermcs/src/node-sjw-test/test/_layouts
+layout   : /fix-memhog-fun
+dirname  : /
+realpath : /
+
+heap = 7,148 k
+mmmmm.... memory... yummmm...
+
+heap = 20,288 k
+mmmmm.... memory... yummmm...
+
+heap = 35,476 k
+mmmmm.... memory... yummmm...
+
+heap = 40,424 k

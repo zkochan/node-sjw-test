@@ -1,0 +1,15 @@
+{
+  "name": "sjw-test",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "^2.1.4",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4",
+    "tape": "^4.6.3"
+  },
+  "scripts": {
+    "bc": "node test/bc-backwards-compatibility",
+    "fix": "node test/fix-fixes",
+    "anm": "node test/anm-adjacent-node-modules"
+  }
+}

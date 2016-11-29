@@ -1,0 +1,16 @@
+node   : v7.2.0-sjw  NODE_SUPPORT_SYMLINKS = 1
+date   : Sat, 03 Dec 2016 19:28:38 GMT
+'$'    : '/home/phestermcs/src/node-sjw-test/test/_layouts'
+'_'    : '$/anm-same-mod-dif-dep-ver'
+
+require                linked    ld/ksh  __dirname               realpath                  
+---------------------  --------  ------  ----------------------  ------------------ key -  
+node '_/index.js'      [prjB_1]  LOADED  _/prjB                  <-                        
+ [prjB_1] <libB>       [libB_1]  LOADED  _/prjB/nm/libB          $/anm-mstore-pub/libB/v1  
+   [libB_1] <libC>     [libC_2]  LOADED  _/prjB/nm/libB.nm/libC  $/anm-mstore-pub/libC/v2  
+
+caller                 called    ()-cnt  __dirname               realpath                  
+---------------------  --------  ------  ----------------------  ------------------ key -  
+node '_/index.js'()    [prjB_1]     1    _/prjB                  <-                        
+  [prjB_1] <libB>()    [libB_1]     1    _/prjB/nm/libB          $/anm-mstore-pub/libB/v1  
+    [libB_1] <libC>()  [libC_2]     1    _/prjB/nm/libB.nm/libC  $/anm-mstore-pub/libC/v2  
