@@ -1,13 +1,13 @@
 # node-sjw-test
-### Tests for node's _**Symlinks Just Work**_ [fork/branch]()
+### Tests for node's _**Symlinks Just Work**_ [fork/branch](https://github.com/phestermcs/node/tree/v7.2.0-sjw)
 This tool was built specifically for testing and exercising a version of `node` that embraces `symlinks` from the ground up, to optimize the storage of `node` `modules`. It is intended to show those skeptical `symlinks` can ever work with `node`, that they may have formed an entirely unwarranted first impression.
 
 ### Results
 
- - _**`citgm`:**_ [v7.2.0](), [v7.2.0-sjw (off)](), [v7.2.0-sjw (on)]()
- - _**`Backwards Compatibility`:**_ [nix](), [win]()
- - _**`--preserve-symlinks Fixes`:**_ [nix](), [win]()
- - _**`adjacent.node_modules`:**_ [nix](), [win]()
+ - _**`citgm v1.7.0`:**_ [v7.2.0 === v7.2.0-sjw](https://github.com/phestermcs/node-sjw-test/tree/master/results/citgm)
+ - _**`Backwards Compatibility`:**_ [nix](https://github.com/phestermcs/node-sjw-test/tree/master/results/nix/bc), [win](https://github.com/phestermcs/node-sjw-test/tree/master/results/win/bc)
+ - _**`--preserve-symlinks Fixes`:**_ [nix](https://github.com/phestermcs/node-sjw-test/tree/master/results/nix/fix), [win](https://github.com/phestermcs/node-sjw-test/tree/master/results/win/fix)
+ - _**`adjacent.node_modules`:**_ [nix](https://github.com/phestermcs/node-sjw-test/tree/master/results/nix/anm), [win](https://github.com/phestermcs/node-sjw-test/tree/master/results/win/anm)
 
 ### Process
 A _**test**_ is simply a directory & file layout of a top-level `'/node_modules'` root structure with auto-generated modules, that output their dependency _**linking**_ and _**call**_ trees, over which a version of `node` is executed to generate the output. An example of a test spec:
@@ -84,10 +84,10 @@ After a given run, the directory layout and all generated output is stored in th
 
 #### Three categories of tests:
 
- - [bc]() - Backwards Compatibility
+ - [bc](https://github.com/phestermcs/node-sjw-test/blob/master/test/bc-backwards-compatibility.js) - Backwards Compatibility
     - Shows that `sjw.off` and `sjw.on` behave identical to `rel.off` on non-symlinked directory structures, by first running tests on `rel.off`, then comparing output to that of `sjw.off` and `sjw.on`.
     - In the context of backwards compatibility, the assumption is made symlink support in the `rel` is broken, and therefore there's no need to test `sjw.on` against `rel.on` over symlinked structures.
- - [fix]() - `--preserve-symlinks` Fixes
+ - [fix](https://github.com/phestermcs/node-sjw-test/blob/master/test/fix-fixes.js) - `--preserve-symlinks` Fixes
     - Outputs from `sjw.on` are generated for review.
     - Output from `rel.on` is compared to `sjw.on` to show failure.
     - Tests faithfully reproduce:
@@ -99,7 +99,7 @@ After a given run, the directory layout and all generated output is stored in th
       - Directory symlinks in target path
       - Absolute and Relative target paths
       - Execute permission on and off
- - [anm]() - `adjacent.node_modules` Demonstrations
+ - [anm](https://github.com/phestermcs/node-sjw-test/blob/master/test/anm-adjacent-node-modules.js) - `adjacent.node_modules` Demonstrations
     - Not actual 'tests', merely output generation for review.
     - Shows how `anm` is mechanically equivalent to and interoperable with `'module/node_modules'`.
     - Various uses cases using symlinks to machine stores, within flat structures, etc.
@@ -110,7 +110,7 @@ After a given run, the directory layout and all generated output is stored in th
  - `node-gyp` must be installed (and necessary build chains)
  - On Windows:
     - Must run with elevated permissions (required to create symlinks)
-    - Execute [win-mk-jx-exec.cmd]() to configure '.js', '.jx', and their associations to mirror 'nix behavior
+    - Execute [win-mk-jx-exec.cmd](https://github.com/phestermcs/node-sjw-test/blob/master/win-mk-jx-exec.cmd) to configure '.js', '.jx', and their associations to mirror 'nix behavior
     - Recommend reviewing .cmd script to understand what it's changing
     - This is only to fully test behavior on Windows. In all practicality, nearly 0 Windows environments will be using file-symlinks meant to have 'execute permission", doubly linked to target '.js' files; Windows' CMD always follows a file-symlink before passing to executable, unlike 'nix, and 'execute' permission is not at the file level, but via PATHEXT evironment variable and ASSOC, FTYPE configuration.
  - Set `SJW_TEST_NODE_REL` env-var to absolute path of `rel` node executable (will default to PATH-located `node` if it's a non-sjw release version)

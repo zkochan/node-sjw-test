@@ -20,5 +20,5 @@
      - [v7.2.0.citgm.rel.off.md]()
    - SUT 1: node v7.2.0-sjw: NODE_SUPPORT_SYMLINKS = 0
      - [v7.2.0.citgm.sjw.off.md]()
-   - SUT 2: v7.2.0-sjw: NODE_SUPPORT_SYMLINKS = 1
+   - SUT 2: node v7.2.0-sjw: NODE_SUPPORT_SYMLINKS = 1
      - [v7.2.0.citgm.sjw.on.md]()

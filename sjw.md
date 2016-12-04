@@ -1,7 +1,7 @@
 # Are Symlinks The Problem?
 One day long ago, a version of `node` was released that purported to support symlinking of module directories. Its implementation was fundamentally flawed. It offered no way to turn the "support" off. And thus the ecosystem proclaimed symlinks to be "_**a very bad thing**_", best avoided in practice, choosing to believe they could never possibly work well with, let alone actually improve `node`.
 
-### This simple [fork/branch](https://github.com/phestermcs/node/tree/v7.2.0-sjw) changes all that by:
+### This simple [fork/branch](https://github.com/phestermcs/node/tree/v7.2.0-sjw) challenges that by:
 
  - Fixing three critical problems with `--preserve-symlinks`:
     - _**Memory Bloat**_
@@ -13,10 +13,10 @@ One day long ago, a version of `node` was released that purported to support sym
    - _**50x reduction in install times (after initial install)**_
    - _**A way out of symlink directory cycles**_
 
-### These tests should demolish any notion symlinks are the problem:
+### These tests hopefully demolish any notion symlinks are the problem:
 
- - `citgm-all` v1.7.0 results from baselined v7.2.0 and v7.2.0-sjw are _**equivalent**_.
- - Purpose built testing tool generates some 30 different layouts of regular and symlinked directory structures using inline and auto-generated modules, covering _**backwards compatibility**_, _**--preserve-symlinks fixes**_.
+ - `citgm-all` v1.7.0 results from baselined v7.2.0 and v7.2.0-sjw are _**[equivalent](https://github.com/phestermcs/node-sjw-test/tree/master/results/citgm#bottom-line-citgm-all-v170-results-identical)**_.
+ - Purpose built [testing tool](https://github.com/phestermcs/node-sjw-test#node-sjw-test) generates some 30 different layouts of regular and symlinked directory structures using inline and auto-generated modules, covering _**[backwards compatibility](https://github.com/phestermcs/node-sjw-test/tree/master/results/nix/bc)**_, _**[--preserve-symlinks fixes](https://github.com/phestermcs/node-sjw-test/tree/master/results/nix/fix)**_, _**[enhanced resolution](https://github.com/phestermcs/node-sjw-test/tree/master/results/nix/anm)**_.
  - The auto generated modules show _**link**_ and _**call**_ chains, detailed with module _**versions**_, _**aliases**_, _**__dirnames**_, _**realpaths**_, _**cache-keys**_, _**module loads vs references**_, and _**call-counts**_.
  - Test's ran against _**both versions of `node`**_, with _**symlink support on and off**_, on both _**windows and linux**_.
 
