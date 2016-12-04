@@ -17,8 +17,8 @@
 
 #### Detailed Results
    - Baseline: node v7.2.0: NODE_PRESERVE_SYMLINKS = 0
-     - [v7.2.0.citgm.rel.off.md]()
+     - [v7.2.0.citgm.rel.off.md](https://github.com/phestermcs/node-sjw-test/blob/master/results/citgm/v7.2.0.citgm.rel.off.md#️-citgm-failed-️)
    - SUT 1: node v7.2.0-sjw: NODE_SUPPORT_SYMLINKS = 0
-     - [v7.2.0.citgm.sjw.off.md]()
+     - [v7.2.0.citgm.sjw.off.md](https://github.com/phestermcs/node-sjw-test/blob/master/results/citgm/v7.2.0.citgm.sjw.off.md#️-citgm-failed-️)
    - SUT 2: node v7.2.0-sjw: NODE_SUPPORT_SYMLINKS = 1
-     - [v7.2.0.citgm.sjw.on.md]()
+     - [v7.2.0.citgm.sjw.on.md](https://github.com/phestermcs/node-sjw-test/blob/master/results/citgm/v7.2.0.citgm.sjw.on.md#️-citgm-failed-️)
