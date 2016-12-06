@@ -13,7 +13,7 @@ press('anm-mstore-pub', {
   },
 })
 
-press('anm-same-mod-dif-dep-ve', {
+press('anm-same-mod-dif-dep-ver', {
   prjA: mod('prjA_1', ['libB'], {
     node_modules: {
       $libB: 'anm-mstore-pub/libB/v1',
