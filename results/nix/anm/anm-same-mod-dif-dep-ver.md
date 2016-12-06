@@ -35,6 +35,10 @@ press('anm-same-mod-dif-dep-ve', {
 test('anm-same-mod-dif-dep-ver-prjA', t => {
   testsjw(t, '../anm-same-mod-dif-dep-ver/prjA')
 })
+
+test('anm-same-mod-dif-dep-ver-prjB', t => {
+  testsjw(t, '../anm-same-mod-dif-dep-ver/prjB')
+})
 ```
 
 ##### `sjw.on` `prjA`
