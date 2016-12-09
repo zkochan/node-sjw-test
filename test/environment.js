@@ -25,7 +25,7 @@ function getNodeInfo(node) {
 function check(path) {
   const check = getNodeInfo(path)
   const isRel = path === env.SJW_TEST_NODE_REL
-  if(!check.version || /sjw$/.test(check.version) && !isRel || isRel) return
+  if(!check.version || /\.100$/.test(check.version) && !isRel || isRel) return
 
   console.log(`Set the SJW_TEST_NODE_${isRel?'REL':'SJW'} env var to location of node release`)
   process.exit(1)
@@ -33,7 +33,7 @@ function check(path) {
 
 if(!env.SJW_TEST_NODE_REL || env.SJW_TEST_NODE_REL.trim() === '') {
   defaultNode = defaultNode || getNodeInfo('node')
-  if(defaultNode.version && /sjw$/.test(defaultNode.version)) {
+  if(defaultNode.version && /\.100/.test(defaultNode.version)) {
     console.log('Set the SJW_TEST_NODE_REL env var to location of node release')
     process.exit(1)
   }
@@ -43,7 +43,7 @@ else check(env.SJW_TEST_NODE_REL)
 
 if(!env.SJW_TEST_NODE_SJW || env.SJW_TEST_NODE_SJW.trim() === '') {
   defaultNode = defaultNode || getNodeInfo('node')
-  if(defaultNode.version && !/sjw$/.test(defaultNode.version)) {
+  if(defaultNode.version && !/\.100$/.test(defaultNode.version)) {
     console.log('Set the SJW_TEST_NODE_SJW env var to location of node v7.2.0-sjw')
     process.exit(1)
   }

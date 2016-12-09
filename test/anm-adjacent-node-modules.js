@@ -33,7 +33,7 @@ test('anm-descendancy', t => {
   testsjw(t, mod('main_1', ['depA'], {
     node_modules: {
       depA: mod('depA_1', ['depB']),
-      'depA.node_modules': {
+      'depA+node_modules': {
         depB: mod('depB_1')
       }
     }
@@ -44,7 +44,7 @@ test('anm-adjacency', t => {
   testsjw(t, mod('main_1', ['int'], {
     node_modules: {
       int: mod(['depA']),
-      'int.node_modules': {
+      'int+node_modules': {
         depA: mod('depA_1', ['depB']),
         depB: mod('depB_1')
       }
@@ -57,9 +57,9 @@ test('anm-ancestory', t => {
     node_modules: {
       depC: mod('depC_1'),
       int1: mod(['int2']),
-      'int1.node_modules': {
+      'int1+node_modules': {
         int2: mod(['depA']),
-        'int2.node_modules': {
+        'int2+node_modules': {
           depA: mod('depA_1', ['depB', 'depC']),
         },
         depB: mod('depB_1')
@@ -82,7 +82,7 @@ test('anm-all-precedences', t => {
                 dscBc: mod('dscBc_1')
               }
             }),
-            'int2.node_modules': {
+            'int2+node_modules': {
               dscAnm: mod('dscAnm_1'),
 
               dscBc: mod('dscBc_WRONG_1'),
@@ -93,7 +93,7 @@ test('anm-all-precedences', t => {
             dscAnm: mod('dscAnm_WRONG_1')
           }
         }),
-        'int1.node_modules': {
+        'int1+node_modules': {
           adjAnm: mod('adjAnm_1'),
 
           adjBc: mod('adjBc_WRONG_1'),
@@ -108,7 +108,7 @@ test('anm-all-precedences', t => {
         dscBc: mod('dscBc_WRONG_4'),
       }
     }),
-    'main.node_modules': {
+    'main+node_modules': {
       ancAnm: mod('ancAnm_1'),
 
       ancBc: mod('ancBc_WRONG_1'),
@@ -185,7 +185,7 @@ press('anm-same-mod-dif-dep-ver', {
   prjA: mod('prjA_1', ['libB'], {
     node_modules: {
       $libB: 'anm-mstore-pub/libB/v1',
-      'libB.node_modules': {
+      'libB+node_modules': {
         $libC: 'anm-mstore-pub/libC/v1'
       }
     }
@@ -193,7 +193,7 @@ press('anm-same-mod-dif-dep-ver', {
   prjB: mod('prjB_1', ['libB'], {
     node_modules: {
       $libB: 'anm-mstore-pub/libB/v1',
-      'libB.node_modules': {
+      'libB+node_modules': {
         $libC: 'anm-mstore-pub/libC/v2'
       }
     }
@@ -215,7 +215,7 @@ test('anm-cycle-one', t => {
     node_modules: {
       $libX: 'anm-mstore-pub/libX',
       $libY: 'anm-mstore-pub/libY',
-      'libY.node_modules': {
+      'libY+node_modules': {
         $libX: 'anm-mstore-pub/libX'
       }
     }
@@ -230,7 +230,7 @@ test('anm-cycle-two', t => {
     node_modules: {
       $libX: 'anm-mstore-pub/libX',
       $libY: 'anm-mstore-pub/libY',
-      'libY.node_modules': {
+      'libY+node_modules': {
         $libX: 'anm-mstore-pub/libX'
       }
     }
@@ -259,7 +259,7 @@ test('anm-flat-tree-one', t => {
     node_modules: {
       libA_2: {
         $libB: 'anm-mstore-pub/libB/v1',
-        '$libB.node_modules': '../libB_1',
+        '$libB+node_modules': '../libB_1',
         $libC: 'anm-mstore-pub/libC/v1',
       },
       libB_1: {
@@ -267,69 +267,69 @@ test('anm-flat-tree-one', t => {
       },
       fwkA_1: {
         $libA: 'anm-mstore-pub/libA/v2',
-        '$libA.node_modules': '../libA_2',
+        '$libA+node_modules': '../libA_2',
         $libC: 'anm-mstore-pub/libC/v1',
         $fwkB: 'anm-mstore-pub/fwkB/v1',
-        '$fwkB.node_modules': '../fwkB_1',
+        '$fwkB+node_modules': '../fwkB_1',
         $fwkC: 'anm-mstore-pub/fwkC/v1',
-        '$fwkC.node_modules': '../fwkC_1'
+        '$fwkC+node_modules': '../fwkC_1'
       },
       fwkB_1: {
         $libB: 'anm-mstore-pub/libB/v1',
-        '$libB.node_modules': '../libB_1',
+        '$libB+node_modules': '../libB_1',
         $libC: 'anm-mstore-pub/libC/v1',
         $fwkC: 'anm-mstore-pub/fwkC/v1',
-        '$fwkC.node_modules': '../fwkC_1'
+        '$fwkC+node_modules': '../fwkC_1'
       },
       fwkC_1: {
         $libC: 'anm-mstore-pub/libC/v1'
       },
       shl_1: {
         $libA: 'anm-mstore-pub/libA/v2',
-        '$libA.node_modules': '../libA_2',
+        '$libA+node_modules': '../libA_2',
         $fwkA: 'anm-mstore-pub/fwkA/v1',
-        '$fwkA.node_modules': '../fwkA_1',
+        '$fwkA+node_modules': '../fwkA_1',
         $fwkB: 'anm-mstore-pub/fwkB/v1',
-        '$fwkB.node_modules': '../fwkB_1'
+        '$fwkB+node_modules': '../fwkB_1'
       },
       cmpA_1: {
         $shl: 'anm-mstore-ent/shl/v1',
-        '$shl.node_modules': '../shl_1',
+        '$shl+node_modules': '../shl_1',
 
         $cmpB: 'anm-mstore-ent/cmpB/v1',
         // flat trees can have cycles
-        '$cmpB.node_modules': '../cmpB_1',
+        '$cmpB+node_modules': '../cmpB_1',
 
         $cmpC: 'anm-mstore-ent/cmpC/v1',
-        '$cmpC.node_modules': '../cmpC_1',
+        '$cmpC+node_modules': '../cmpC_1',
         $fwkC: 'anm-mstore-pub/fwkC/v1',
-        '$fwkC.node_modules': '../fwkC_1',
+        '$fwkC+node_modules': '../fwkC_1',
         $libB: 'anm-mstore-pub/libB/v1',
-        '$libB.node_modules': '../libB_1',
+        '$libB+node_modules': '../libB_1',
       },
       cmpB_1: {
         $shl: 'anm-mstore-ent/shl/v1',
-        '$shl.node_modules': '../shl_1',
+        '$shl+node_modules': '../shl_1',
 
         $cmpA: 'anm-mstore-ent/cmpA/v1',
         // flat trees can have cycles,
         // but can always get out of them
         // a couple of ways.. just more
         // work
-        '$cmpA.node_modules': '../cmpA_1',
+        '$cmpA+node_modules': '../cmpA_1',
 
         $fwkA: 'anm-mstore-pub/fwkA/v1',
-        '$fwkA.node_modules': '../fwkA_1',
+        '$fwkA+node_modules': '../fwkA_1',
         $libA: 'anm-mstore-pub/libA/v2',
-        '$libA.node_modules': '../libA_2',
+        '$libA+node_modules': '../libA_2',
       },
       cmpC_1: {
         $shl: 'anm-mstore-ent/shl/v1',
-        '$shl.node_modules': '../shl_1',
+        '$shl+node_modules': '../shl_1',
         $libC: 'anm-mstore-pub/libC/v1',
       },
       $cmpA: 'anm-mstore-ent/cmpA/v1',
-      '$cmpA.node_modules': './cmpA_1'
+      '$cmpA+node_modules': './cmpA_1'
     }
   }))
 })
